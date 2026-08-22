@@ -1,0 +1,13 @@
+{
+  "common.cancel": "Отмена",
+  "common.save": "Сохранить изменения",
+  "gallery.open": "Открыть галерею",
+  "minecraft.server.restart": "Перезапустить сервер",
+  "status.operational": "Работает",
+  "tts.queue.items": {
+    "one": "{{.Count}} элемент в очереди",
+    "few": "{{.Count}} элемента в очереди",
+    "many": "{{.Count}} элементов в очереди",
+    "other": "{{.Count}} элемента в очереди"
+  }
+}

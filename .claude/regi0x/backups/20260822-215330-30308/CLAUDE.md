@@ -1,5 +1,3 @@
-@.claude/regi0x/CLAUDE.profile.md
-
 @.claude/regi0x/CLAUDE.base.md
 
 # Regi0x UI Lab

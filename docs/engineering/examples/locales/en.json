@@ -1,0 +1,11 @@
+{
+  "common.cancel": "Cancel",
+  "common.save": "Save changes",
+  "gallery.open": "Open gallery",
+  "minecraft.server.restart": "Restart server",
+  "status.operational": "Operational",
+  "tts.queue.items": {
+    "one": "{{.Count}} item in queue",
+    "other": "{{.Count}} items in queue"
+  }
+}

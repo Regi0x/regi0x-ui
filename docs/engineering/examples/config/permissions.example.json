@@ -1,0 +1,35 @@
+{
+  "roles": [
+    {
+      "key": "moderator",
+      "labels": {"en": "Sentinel", "ru": "Страж"},
+      "permissions": [
+        "media.moderate",
+        "bots.moderation.manage",
+        "tts.queue.manage",
+        "tts.users.manage",
+        "minecraft.players.view",
+        "minecraft.players.kick",
+        "minecraft.players.ban",
+        "minecraft.console.read"
+      ]
+    },
+    {
+      "key": "tts_manager",
+      "labels": {"en": "Voice Keeper", "ru": "Голос"},
+      "permissions": [
+        "tts.queue.view",
+        "tts.queue.manage",
+        "tts.history.view",
+        "tts.users.manage",
+        "tts.voice.assign"
+      ]
+    }
+  ],
+  "exampleAssignment": {
+    "userId": "usr_example",
+    "roleKey": "moderator",
+    "scope": {"type": "minecraft_server", "id": "srv_survival"},
+    "expiresAt": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "defaultEngine": "silero",
+  "defaultVoice": "xenia",
+  "fallbackMode": "random",
+  "randomPool": [
+    {"voice": "xenia", "engine": "silero", "weight": 100},
+    {"voice": "baya", "engine": "silero", "weight": 100},
+    {"voice": "alisa", "engine": "moss-nano", "weight": 100}
+  ],
+  "limits": {
+    "maxQueue": 30,
+    "maxTextRunes": 300,
+    "maxAudioSeconds": 30,
+    "maxConcurrentInference": 1,
+    "audioTtl": "10m"
+  }
+}

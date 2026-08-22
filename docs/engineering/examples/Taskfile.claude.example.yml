@@ -1,0 +1,41 @@
+version: '3'
+
+# Merge these ideas into the repository Taskfile instead of replacing it.
+tasks:
+  stack:versions:
+    desc: Print versions/manifests Claude should treat as authoritative
+    cmds:
+      - bash .claude/scripts/stack-versions.sh
+
+  claude:doctor:
+    desc: Check Claude Code kit installation and project profile
+    cmds:
+      - bash .claude/scripts/doctor.sh
+
+  # Adapt to the repository. Keep one stable command for humans, Claude and CI.
+  check:
+    desc: Canonical verification before a change is considered complete
+    cmds:
+      - gofmt -w .
+      - templ fmt .
+      - go test ./...
+      - go vet ./...
+      - npm run check
+
+  # Optional service helpers when FidonyAa deployables exist.
+  service:status:
+    desc: Show FidonyAa service status
+    cmds:
+      - systemctl --no-pager status fidonyaa-core.service || true
+      - systemctl --no-pager status fidonyaa-bot.service || true
+      - systemctl --no-pager status fidonyaa-tts.service || true
+
+  service:logs:tts:
+    desc: Follow TTS logs
+    cmds:
+      - journalctl -u fidonyaa-tts.service -f
+
+  i18n:check:
+    desc: Check EN/RU catalog key parity when locale files exist
+    cmds:
+      - bash .claude/scripts/translations-check.sh ./locales/en.json ./locales/ru.json

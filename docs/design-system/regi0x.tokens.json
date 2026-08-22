@@ -1,0 +1,90 @@
+{
+  "$schema": "regi0x.design-tokens.v3",
+  "meta": {
+    "name": "Regi0x Design Tokens",
+    "version": "3.0.0",
+    "defaultTheme": "dark",
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "rule": "Components consume semantic/component tokens; primitives are implementation inputs."
+  },
+  "primitive": {
+    "space": {
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "6": "24px",
+      "8": "32px",
+      "12": "48px",
+      "16": "64px"
+    },
+    "radius": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "20px",
+      "2xl": "24px",
+      "3xl": "32px"
+    },
+    "control": {
+      "sm": "32px",
+      "md": "40px",
+      "lg": "48px",
+      "touch": "44px"
+    },
+    "motion": {
+      "instant": "0ms",
+      "fast": "120ms",
+      "normal": "180ms",
+      "medium": "240ms",
+      "slow": "320ms",
+      "ambient": "40000ms"
+    }
+  },
+  "semantic": {
+    "dark": {
+      "color.background": "#0b0b11",
+      "color.background.subtle": "#16161f",
+      "color.text.primary": "#f4f4f7",
+      "color.text.secondary": "#a6a6b8",
+      "color.text.tertiary": "#7d7d94",
+      "color.action.primary.background": "#6a58f0",
+      "color.action.primary.backgroundHover": "#6247ea",
+      "color.action.primary.backgroundPressed": "#4c33c4",
+      "color.action.primary.foreground": "#ffffff",
+      "color.action.link": "#a78bfa",
+      "color.accent.text": "#2dd4bf",
+      "color.focus.ring": "#a78bfa"
+    },
+    "light": {
+      "color.background": "#f4f4f8",
+      "color.background.subtle": "#eeeef3",
+      "color.text.primary": "#16161f",
+      "color.text.secondary": "#55556a",
+      "color.text.tertiary": "#6b6b80",
+      "color.action.primary.background": "#6247ea",
+      "color.action.primary.backgroundHover": "#4c33c4",
+      "color.action.primary.backgroundPressed": "#4c33c4",
+      "color.action.primary.foreground": "#ffffff",
+      "color.action.link": "#6247ea",
+      "color.accent.text": "#0f766e",
+      "color.focus.ring": "#6247ea"
+    }
+  },
+  "layer": {
+    "page": 0,
+    "sticky": 10,
+    "chrome": 20,
+    "menu": 30,
+    "popover": 40,
+    "toast": 50,
+    "scrim": 60,
+    "modal": 70,
+    "command": 80,
+    "system": 90
+  }
+}

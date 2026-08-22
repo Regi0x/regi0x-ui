@@ -1,0 +1,25 @@
+[Unit]
+Description=FidonyAa TTS Control Plane
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fidonyaa-tts
+Group=fidonyaa-tts
+WorkingDirectory=/opt/fidonyaa
+EnvironmentFile=/etc/fidonyaa/tts.env
+ExecStart=/opt/fidonyaa/bin/fidonyaa-tts
+Restart=on-failure
+RestartSec=3s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/fidonyaa/tts
+# EXAMPLE ONLY: benchmark before using production limits.
+MemoryHigh=4G
+MemoryMax=5G
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "../regi0x-ui"
+    ]
+  }
+}

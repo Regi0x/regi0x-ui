@@ -1,0 +1,26 @@
+[Unit]
+Description=FidonyAa Core
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fidonyaa
+Group=fidonyaa
+WorkingDirectory=/opt/fidonyaa
+EnvironmentFile=/etc/fidonyaa/core.env
+# Example secret names. The application reads them from $CREDENTIALS_DIRECTORY.
+LoadCredential=twitch_client_secret:/etc/fidonyaa/credentials/twitch_client_secret
+LoadCredential=session_signing_key:/etc/fidonyaa/credentials/session_signing_key
+ExecStart=/opt/fidonyaa/bin/fidonyaa-core
+Restart=on-failure
+RestartSec=3s
+TimeoutStopSec=30s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/fidonyaa /var/log/fidonyaa
+
+[Install]
+WantedBy=multi-user.target

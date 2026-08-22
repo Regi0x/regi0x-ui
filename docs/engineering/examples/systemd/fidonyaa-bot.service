@@ -1,0 +1,23 @@
+[Unit]
+Description=FidonyAa Bot and Automation Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fidonyaa-bot
+Group=fidonyaa-bot
+WorkingDirectory=/opt/fidonyaa
+EnvironmentFile=/etc/fidonyaa/bot.env
+LoadCredential=telegram_bot_token:/etc/fidonyaa/credentials/telegram_bot_token
+LoadCredential=discord_bot_token:/etc/fidonyaa/credentials/discord_bot_token
+ExecStart=/opt/fidonyaa/bin/fidonyaa-bot
+Restart=on-failure
+RestartSec=3s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
