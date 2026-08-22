@@ -1,0 +1,30 @@
+package badge
+
+type Tone string
+
+const (
+	Neutral Tone = "neutral"
+	Brand Tone = "brand"
+	Success Tone = "success"
+	Warning Tone = "warning"
+	Error Tone = "error"
+	Info Tone = "info"
+)
+
+func className(tone Tone) string {
+	base := "inline-flex min-h-6 items-center rounded-full px-2.5 text-xs font-medium"
+	tones := map[Tone]string{
+		Neutral: "bg-[var(--color-surface-active)] text-[var(--color-text-secondary)]",
+		Brand: "bg-[var(--color-action-primary-soft)] text-[var(--color-action-primary-on-soft)]",
+		Success: "bg-[var(--color-success-soft)] text-[var(--color-success-text)]",
+		Warning: "bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
+		Error: "bg-[var(--color-error-soft)] text-[var(--color-error-text)]",
+		Info: "bg-[var(--color-info-soft)] text-[var(--color-info-text)]",
+	}
+	if _, ok := tones[tone]; !ok { tone = Neutral }
+	return base + " " + tones[tone]
+}
+
+templ Badge(label string, tone Tone) {
+	<span class={ className(tone) }>{ label }</span>
+}

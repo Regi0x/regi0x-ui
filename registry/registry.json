@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "components": {
+    "button": {
+      "maturity": "stable",
+      "source": "components/button/button.templ",
+      "docs": "components/button/README.md",
+      "variants": ["primary", "secondary", "ghost", "destructive"]
+    },
+    "badge": {
+      "maturity": "stable",
+      "source": "components/badge/badge.templ",
+      "docs": "components/badge/README.md",
+      "variants": ["neutral", "brand", "success", "warning", "error", "info"]
+    },
+    "card": {
+      "maturity": "stable",
+      "source": "components/card/card.templ",
+      "docs": "components/card/README.md",
+      "variants": ["default", "glass", "elevated"]
+    },
+    "field": {
+      "maturity": "beta",
+      "source": "components/field/field.templ",
+      "docs": "components/field/README.md",
+      "variants": ["default", "invalid"]
+    }
+  },
+  "patterns": {},
+  "screens": {}
+}

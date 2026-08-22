@@ -1,0 +1,73 @@
+package pages
+
+import (
+	"github.com/Regi0x/regi0x-ui/components/badge"
+	"github.com/Regi0x/regi0x-ui/components/button"
+	"github.com/Regi0x/regi0x-ui/components/card"
+	"github.com/Regi0x/regi0x-ui/components/field"
+)
+
+templ Home() {
+	<!DOCTYPE html>
+	<html lang="en" data-theme="dark">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>Regi0x UI Lab</title>
+			<link rel="stylesheet" href="/static/app.css"/>
+			<script defer src="/static/vendor/htmx.min.js"></script>
+		</head>
+		<body class="ui-aurora">
+			<div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-[240px_minmax(0,1fr)_220px] gap-6 px-6 py-6 max-lg:grid-cols-1">
+				<aside class="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-glass-standard)] p-4 backdrop-blur-xl max-lg:hidden">
+					<div class="mb-6 flex items-center gap-3">
+						<div class="grid size-9 place-items-center rounded-lg bg-gradient-to-br from-[var(--color-action-primary-bg)] to-[var(--color-secondary-fill)] font-bold">R</div>
+						<div><strong>Regi0x UI</strong><div class="text-xs text-[var(--color-text-secondary)]">Design System Lab</div></div>
+					</div>
+					<nav class="grid gap-1 text-sm text-[var(--color-text-secondary)]">
+						<a class="rounded-lg bg-[var(--color-surface-active)] px-3 py-2 text-white" href="#foundations">Foundations</a>
+						<a class="rounded-lg px-3 py-2 hover:bg-[var(--color-surface)]" href="#components">Components</a>
+						<a class="rounded-lg px-3 py-2 hover:bg-[var(--color-surface)]" href="#patterns">Patterns</a>
+						<a class="rounded-lg px-3 py-2 hover:bg-[var(--color-surface)]" href="#screens">Screens</a>
+						<a class="rounded-lg px-3 py-2 hover:bg-[var(--color-surface)]" href="#playground">Playground</a>
+						<a class="rounded-lg px-3 py-2 hover:bg-[var(--color-surface)]" href="#tokens">Tokens</a>
+					</nav>
+				</aside>
+
+				<main class="min-w-0">
+					<header class="mb-6 flex items-center justify-between rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-glass-thin)] px-5 py-4 backdrop-blur-xl">
+						<div><div class="text-xs uppercase tracking-[0.2em] text-[var(--color-action-primary-on-soft)]">Canonical reference</div><h1 class="text-2xl font-semibold">Component Playground</h1></div>
+						<div class="flex gap-2">@button.Button("EN / RU", button.Ghost, button.Small, false) @button.Button("Dark / Light", button.Secondary, button.Small, false)</div>
+					</header>
+
+					<section id="components" class="space-y-5">
+						<div><h2 class="text-xl font-semibold">Golden components</h2><p class="mt-1 text-sm text-[var(--color-text-secondary)]">Stable primitives are the implementation source of truth.</p></div>
+						<div class="grid gap-4 xl:grid-cols-2">
+							<div class="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] p-5">
+								<div class="mb-4 flex items-center justify-between"><h3 class="font-semibold">Button</h3>@badge.Badge("Stable", badge.Success)</div>
+								<div class="flex flex-wrap gap-3">@button.Button("Primary", button.Primary, button.Medium, false) @button.Button("Secondary", button.Secondary, button.Medium, false) @button.Button("Ghost", button.Ghost, button.Medium, false) @button.Button("Delete", button.Destructive, button.Medium, false) @button.Button("Disabled", button.Primary, button.Medium, true)</div>
+							</div>
+							<div class="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] p-5">
+								<div class="mb-4 flex items-center justify-between"><h3 class="font-semibold">Status</h3>@badge.Badge("Stable", badge.Success)</div>
+								<div class="flex flex-wrap gap-2">@badge.Badge("Brand", badge.Brand) @badge.Badge("Online", badge.Success) @badge.Badge("Warning", badge.Warning) @badge.Badge("Failed", badge.Error) @badge.Badge("Info", badge.Info)</div>
+							</div>
+						</div>
+
+						<div class="grid gap-4 xl:grid-cols-3">@card.Card("Default card", "A low-emphasis container directly on the page.", card.Default) @card.Card("Glass card", "Use restrained translucency over the aurora background.", card.Glass) @card.Card("Elevated card", "Opaque and lifted when readability must win.", card.Elevated)</div>
+
+						<div class="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-surface)] p-5">
+							<div class="mb-4 flex items-center justify-between"><h3 class="font-semibold">Field</h3>@badge.Badge("Beta", badge.Warning)</div>
+							<div class="max-w-lg">@field.Text("Display name", "display_name", "Your public name", "Russian copy must fit without clipping.", false)</div>
+						</div>
+					</section>
+				</main>
+
+				<aside class="rounded-2xl border border-[var(--color-border-hairline)] bg-[var(--color-glass-thin)] p-4 text-sm backdrop-blur-xl max-lg:hidden">
+					<div class="mb-3 font-semibold">On this page</div>
+					<div class="grid gap-2 text-[var(--color-text-secondary)]"><a href="#components">Golden components</a><a href="#patterns">Patterns</a><a href="#screens">Screens</a></div>
+					<div class="mt-8 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-action-primary-soft)] p-3"><div class="font-medium text-[var(--color-action-primary-on-soft)]">AI rule</div><p class="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">Search Stable registry entries before creating markup.</p></div>
+				</aside>
+			</div>
+		</body>
+	</html>
+}

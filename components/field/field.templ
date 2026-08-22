@@ -1,0 +1,23 @@
+package field
+
+func ariaInvalid(invalid bool) string {
+	if invalid {
+		return "true"
+	}
+	return "false"
+}
+
+templ Text(label string, name string, placeholder string, hint string, invalid bool) {
+	<label class="grid gap-2">
+		<span class="text-sm font-medium">{ label }</span>
+		<input
+			name={ name }
+			placeholder={ placeholder }
+			aria-invalid={ ariaInvalid(invalid) }
+			class="h-10 rounded-lg border border-[var(--color-border-hairline)] bg-[var(--color-surface)] px-3 text-sm outline-none placeholder:text-[var(--color-text-tertiary)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
+		/>
+		if hint != "" {
+			<span class="text-xs text-[var(--color-text-secondary)]">{ hint }</span>
+		}
+	</label>
+}

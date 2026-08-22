@@ -1,0 +1,22 @@
+[Unit]
+Description=Regi0x UI Lab
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=regi0x-ui
+Group=regi0x-ui
+WorkingDirectory=/opt/regi0x-ui/current
+EnvironmentFile=-/etc/regi0x-ui/regi0x-ui.env
+ExecStart=/opt/regi0x-ui/current/bin/regi0x-ui
+Restart=on-failure
+RestartSec=2s
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/regi0x-ui/current
+
+[Install]
+WantedBy=multi-user.target

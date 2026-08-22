@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  bootstrap:
+    desc: Install JS dependencies and generate templ code
+    cmds:
+      - npm install
+      - templ generate
+      - npm run assets
+
+  generate:
+    cmds:
+      - templ generate
+
+  assets:
+    cmds:
+      - npm run assets
+
+  dev:
+    desc: Build assets and run UI Lab
+    cmds:
+      - templ generate
+      - npm run assets
+      - go run ./cmd/ui
+
+  check:
+    desc: Canonical validation before review
+    cmds:
+      - templ fmt .
+      - templ generate
+      - gofmt -w ./cmd ./components
+      - go test ./...
+      - go vet ./...
+      - npm run assets
+
+  registry:check:
+    cmds:
+      - go run ./cmd/ui --check-registry
+
+  release:check:
+    desc: Ensure generated code and validation are clean before tagging the UI module
+    cmds:
+      - task: check
+      - git diff --exit-code

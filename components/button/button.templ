@@ -1,0 +1,34 @@
+package button
+
+type Variant string
+
+type Size string
+
+const (
+	Primary     Variant = "primary"
+	Secondary   Variant = "secondary"
+	Ghost       Variant = "ghost"
+	Destructive Variant = "destructive"
+
+	Small  Size = "sm"
+	Medium Size = "md"
+	Large  Size = "lg"
+)
+
+func className(variant Variant, size Size) string {
+	base := "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50"
+	sizes := map[Size]string{Small: "h-8 px-3 text-xs", Medium: "h-10 px-4 text-sm", Large: "h-12 px-5 text-base"}
+	variants := map[Variant]string{
+		Primary: "bg-[var(--color-action-primary-bg)] text-white shadow-md hover:brightness-110 focus-visible:outline-[var(--color-focus-ring)]",
+		Secondary: "border border-[var(--color-border-hairline)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-active)] focus-visible:outline-[var(--color-focus-ring)]",
+		Ghost: "bg-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-active)] hover:text-[var(--color-text-primary)] focus-visible:outline-[var(--color-focus-ring)]",
+		Destructive: "bg-[var(--color-error-fill)] text-white hover:brightness-110 focus-visible:outline-[var(--color-error-fill)]",
+	}
+	if _, ok := sizes[size]; !ok { size = Medium }
+	if _, ok := variants[variant]; !ok { variant = Primary }
+	return base + " " + sizes[size] + " " + variants[variant]
+}
+
+templ Button(label string, variant Variant, size Size, disabled bool) {
+	<button type="button" class={ className(variant, size) } disabled?={ disabled }>{ label }</button>
+}

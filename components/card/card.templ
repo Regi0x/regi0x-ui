@@ -1,0 +1,27 @@
+package card
+
+type Variant string
+
+const (
+	Default Variant = "default"
+	Glass Variant = "glass"
+	Elevated Variant = "elevated"
+)
+
+func className(variant Variant) string {
+	base := "rounded-xl border border-[var(--color-border-hairline)] p-5"
+	variants := map[Variant]string{
+		Default: "bg-[var(--color-surface)]",
+		Glass: "bg-[var(--color-glass-standard)] backdrop-blur-[var(--glass-blur-standard)] shadow-[var(--shadow-e2)]",
+		Elevated: "bg-[var(--color-surface-raised)] shadow-[var(--shadow-e2)]",
+	}
+	if _, ok := variants[variant]; !ok { variant = Default }
+	return base + " " + variants[variant]
+}
+
+templ Card(title string, description string, variant Variant) {
+	<article class={ className(variant) }>
+		<h3 class="text-base font-semibold tracking-tight">{ title }</h3>
+		<p class="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{ description }</p>
+	</article>
+}

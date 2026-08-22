@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schemaVersion", "components", "patterns", "screens"],
+  "properties": {
+    "schemaVersion": {"type": "integer", "minimum": 1},
+    "components": {"type": "object"},
+    "patterns": {"type": "object"},
+    "screens": {"type": "object"}
+  },
+  "additionalProperties": false
+}

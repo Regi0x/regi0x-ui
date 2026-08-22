@@ -1,0 +1,4 @@
+ui.regi0x.dev {
+    encode zstd gzip
+    reverse_proxy {$REGI0X_UI_ORIGIN:127.0.0.1:8090}
+}

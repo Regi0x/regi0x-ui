@@ -1,0 +1,8 @@
+.env
+.env.local
+node_modules/
+static/app.css
+static/vendor/htmx.min.js
+*.log
+.tmp/
+dist/
